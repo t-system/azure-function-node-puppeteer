@@ -47,4 +47,26 @@ module.exports = async (context, req) => {
         body: `Page title: ${pageTitle}`
     };
 };
+
+
+## Publishing to Docker hub
+One time only:
+ - Create repo on docker hub
+ - Make sure your docker user can write to it
+ - `docker login` (with your hub.docker.com credentials on your terminal)
+
+Each time you want to publish:
+ - `docker build -t <org>/azure-function-node-puppeteer:1.0.0 .`
+   - `-t ...` tags this image
+   - `.` the current directory with the Dockerfile in it
+ - Copy the tag to other tags:
+   - `docker tag <org>/azure-function-node-puppeteer:1.0.0 <org>/azure-function-node-puppeteer:1`
+   - `docker tag <org>/azure-function-node-puppeteer:1.0.0 <org>/azure-function-node-puppeteer:1.0`
+   - `docker tag <org>/azure-function-node-puppeteer:1.0.0 <org>/azure-function-node-puppeteer:latest`
+ - Push all the tags to Dockerhub:
+   - `docker push <org>/azure-function-node-puppeteer:1.0.0`
+   - `docker push <org>/azure-function-node-puppeteer:1.0`
+   - `docker push <org>/azure-function-node-puppeteer:1`
+   - `docker push <org>/azure-function-node-puppeteer:latest`
+
 ```
