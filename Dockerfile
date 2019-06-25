@@ -25,4 +25,4 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot
 
 # Specify the work dir and do a npm install
 WORKDIR /home/site/wwwroot
-RUN npm i puppeteer@1.8.0
+RUN npm i puppeteer@1.18.0
