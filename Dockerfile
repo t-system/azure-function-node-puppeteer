@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/azure-functions/node:2.0
+FROM mcr.microsoft.com/azure-functions/node:3.0
 
 # See https://crbug.com/795759
 RUN apt-get update && apt-get install -yq libgconf-2-4
